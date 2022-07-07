@@ -3,7 +3,9 @@
 {% block body %}
   <h2>Catégories</h2>
   {% for categorie in categories %}
-    <p>{{ categorie. }}</p>
+    <ul>
+      <li>{{ categorie.label }}</li>
+    </ul>
   {% endfor %}
 {% endblock %}
 

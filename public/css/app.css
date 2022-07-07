@@ -16,18 +16,18 @@ body {
 }
 
 header {
-  background: red;
+  background: #9b9b9b;
   height: 100px;
 }
 
-header a {
+a {
   text-decoration: none;
   padding: 3px;
   color: black;
   font-size: 1.2rem;
 }
 
-header a:hover {
+a:hover {
   text-decoration: underline;
 }
 
@@ -38,16 +38,33 @@ h1 {
   margin-bottom: 15px;
 }
 
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h5, h4 {
+  font-size: 1.2rem;
+}
+
+li {
+  font-size: 1.2rem;
+}
+
 .nav-bar {
-  background: deeppink;
   display: flex;
   justify-content: space-between;
 }
 
 main {
-  background: deepskyblue;
+  background: #ffefd6;
   flex: 1;
   padding: 1rem 0;
+  line-height: 2rem;
 }
 
 label {
@@ -78,7 +95,7 @@ button {
 }
 
 footer {
-  background: greenyellow;
+  background: #e8e8e8;
   height: 30px;
   text-align: center;
 }

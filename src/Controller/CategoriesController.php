@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Categories;
 use App\Form\CategoriesType;
+use App\Repository\CategoriesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,9 +19,9 @@ class CategoriesController extends AbstractController
   /**
    * @Route("/liste-des-categories", name="liste")
    */
-  public function liste(): Response
+  public function liste(CategoriesRepository $categoriesRepository): Response
   {
-    $categories = new Categories();
+    $categories = $categoriesRepository->findAll();
 
     return $this->render('categories/liste.html.twig', [
       'categories' => $categories
