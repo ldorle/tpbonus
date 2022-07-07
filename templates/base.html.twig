@@ -6,19 +6,32 @@
         content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{% block title %}TP Bonus{% endblock %}</title>
+
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-  <head>
-
-  </head>
+  <header>
+    <div class="container">
+      <h1>ENI Market Place</h1>
+      <nav class="nav-bar">
+        <a href="{{ path('main_home') }}">Accueil</a>
+        <a href="#">Liste des produits</a>
+        <a href="#">Ajout d'un produit</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    {% block body %}
-    {% endblock %}
+    <div class="container">
+      {% block body %}
+      {% endblock %}
+    </div>
   </main>
 
   <footer>
-    <div>&copy; {{ "now" | date('Y') }} ENI Ecole Informatique</div>
+    <div class="container">
+      <div>&copy; {{ "now" | date('Y') }} ENI Ecole Informatique</div>
+    </div>
   </footer>
 </body>
 </html>
