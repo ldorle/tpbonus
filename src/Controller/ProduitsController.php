@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Produits;
 use App\Form\ProduitsType;
+use App\Repository\ProduitsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,7 +33,7 @@ class ProduitsController extends AbstractController
     if ($produitsForm->isSubmitted() && $produitsForm->isValid()) {
       $entityManager->persist($produits);
       $entityManager->flush();
-      return $this->redirectToRoute('produits_details');
+      return $this->redirectToRoute('produits_details', ['id' => $produits->getId()]);
     }
 
     return $this->render('produits/create.html.twig', [
@@ -41,9 +42,26 @@ class ProduitsController extends AbstractController
   }
 
   /**
-   * @Route("/details", name="details")
+   * @Route("/liste-des-produits", name="liste")
    */
-  public function details() {
-    return $this->render('produits/details.html.twig');
+  public function list(ProduitsRepository $produitsRepository) {
+
+    $produits = $produitsRepository->findAll();
+
+    return $this->render('produits/list.html.twig', [
+      'produits' => $produits
+    ]);
+  }
+
+  /**
+   * @Route("/details/{id}", name="details")
+   */
+  public function details(int $id, ProduitsRepository $produitsRepository) {
+
+    $produits = $produitsRepository->find($id);
+
+    return $this->render('produits/details.html.twig', [
+      "produits" => $produits
+    ]);
   }
 }
