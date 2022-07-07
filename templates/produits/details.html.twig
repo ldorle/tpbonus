@@ -7,11 +7,15 @@
 {% block body %}
   <h2>{{ produits.label }}</h2>
   <h3>Ajouté le {{ produits.dateAdd | date('d-m-Y') }}</h3>
-  <h4>{{ produits.description }}</h4>
-  {% if produits.categories %}
-    <h5>Catégorie : {{ produits.categories.label }}</h5>
-  {% endif %}
-  <p>Prix : {{ produits.price }}</p>
-  <p>Stock : {{ produits.stock }}</p>
+  <ul>
+    {% if produits.description %}
+      <li>Description : {{ produits.description }}</li>
+    {% endif %}
+    {% if produits.categories %}
+      <li>Catégorie : {{ produits.categories.label }}</li>
+    {% endif %}
+    <li>Prix : {{ produits.price }} $</li>
+    <li>Stock : {{ produits.stock }}</li>
+  </ul>
 {% endblock %}
 
