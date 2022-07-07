@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {{ form_start(categoriesForm) }}
+  {{ form_widget(categoriesForm) }}
+  <button>Valider la catégorie</button>
+  {{ form_end(categoriesForm) }}
+{% endblock %}
+
+{% block title %}
+{{ parent() }} | Créer une catégorie
+{% endblock %}
+

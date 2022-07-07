@@ -57,6 +57,11 @@ class Produits
      */
     private $date_edit;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="produits")
+     */
+    private $categories;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Produits
     public function setDateEdit(\DateTimeInterface $date_edit): self
     {
         $this->date_edit = $date_edit;
+
+        return $this;
+    }
+
+    public function getCategories(): ?Categories
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Categories $categories): self
+    {
+        $this->categories = $categories;
 
         return $this;
     }

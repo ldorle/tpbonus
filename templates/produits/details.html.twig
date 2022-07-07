@@ -8,6 +8,9 @@
   <h2>{{ produits.label }}</h2>
   <h3>Ajouté le {{ produits.dateAdd | date('d-m-Y') }}</h3>
   <h4>{{ produits.description }}</h4>
+  {% if produits.categories %}
+    <h5>Catégorie : {{ produits.categories }}</h5>
+  {% endif %}
   <p>Prix : {{ produits.price }}</p>
   <p>Stock : {{ produits.stock }}</p>
 {% endblock %}
