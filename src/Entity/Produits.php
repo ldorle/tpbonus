@@ -43,7 +43,7 @@ class Produits
     private $stock;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean",)
      */
     private $published;
 
